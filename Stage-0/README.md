@@ -60,7 +60,7 @@ Run `apache2` package installation.
 sudo apt install apache2
 ```
 
-Run the `systemctl status` command to check if apache2 is running, if it is green then apache2 is running correctly. Your first web server has been launched.
+Run the `systemctl status` command to check if apache2 is running, if it is green then apache2 is running correctly. Your first webserver has been launched.
 
 ```sh
 sudo systemctl status apache2
