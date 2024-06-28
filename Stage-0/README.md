@@ -10,14 +10,13 @@ The following steps are taken to deploy a static website on AWS:
 
 Click on the `Search Bar`, type **EC2** and click on it.
 
-
 Click on `Launch instance` button.
 
 Use the following parameters when configuring the EC2 Instance then click on the `Launch instance` button:
-1. Name of Instance: Web Server
+1. Name of Instance: web-server
 2. AMI: Ubuntu Server 22.04 LTS(HVM), SSD Volume Type
 3. Instance Type: t2.micro
-4. New Key Pair Name: web11
+4. New Key Pair Name: run
 5. Key Pair Type: RSA
 6. Private Key File Format: .pem
 7. New Security Group: Web01
@@ -133,12 +132,13 @@ EOF
 Restart the apache service to update changes.
 
 ```sh
-sudo apt update apache2
+sudo systemctl restart apache2
 ```
 
 ## Step 5: Validate the Static Website Hosted on AWS
 
-Run the following command to get the `Public IP Address` of your EC2 Instance.
+On your EC2 Dashboard, click on the **Instance ID** and copy `Public IP Address` of your EC2 Instance.
+
 
 ```sh
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
