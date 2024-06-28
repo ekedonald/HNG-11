@@ -1,4 +1,4 @@
-# Deploying a Static Website
+# Deploying a Static Website on AWS
 
 The following steps are taken to deploy a static website on AWS:
 
