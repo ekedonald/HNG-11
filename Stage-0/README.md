@@ -20,8 +20,13 @@ Use the following parameters when configuring the EC2 Instance then click on the
 4. New Key Pair Name: web11
 5. Key Pair Type: RSA
 6. Private Key File Format: .pem
+<<<<<<< HEAD
 7. New Security Group: Web01
 8. Inbound Rules: Allow Traffic From Anywhere On **Port 80** and only Traffic from your Workstation (i.e. My IP) on **Port 22**.
+=======
+7. New Security Group: WordPress
+8. Inbound Rules: Allow Traffic From Anywhere On Port 80 and only Traffic from your Workstation (i.e. My IP) on Port 22.
+>>>>>>> parent of dc4d8b4 (updates)
 
 ## Step 2: Connect to EC2 Instance using SSH
 
