@@ -1,6 +1,6 @@
 # Deploying a Static Website on AWS
 
-The following steps are taken to deploy a static website on AWS:
+The following steps are taken to Deploy a Static Website on AWS:
 
 ## Prerequisites
 
@@ -28,9 +28,15 @@ On the EC2 Dashboard, click on the `Instances (running)` tab.
 
 Click on the `Instance ID` of the Running Instance.
 
+![instance id](./images/2%20instace-id.png)
+
 Click on the `Connect` button of the Instance ID summary.
 
+![connect](./images/2%20connect%20button.png)
+
 Click on `SSH Client` tab, the highlighted commands in the image below are used to **SSH** into the EC2 Instance.
+
+![ssh client](./images/2%20highlighted%20commands.png)
 
 On you terminal, run the following command `cd Downloads` to go to the location of the `.pem` private key file.
 
@@ -46,6 +52,8 @@ Finally, connect to the EC2 Instance by running the command shown below:
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 ```
 
+![ssh ec2](./images/2%20ssh%20ec2.png)
+
 ## Step 3: Installing Apache
 
 Update the list of packages in the package manager.
@@ -57,8 +65,10 @@ sudo apt update
 Run `apache2` package installation.
 
 ```sh
-sudo apt install apache2
+sudo apt install apache2 -y
 ```
+
+![install apache2](./images/3%20install%20apache2.png)
 
 Run the `systemctl status` command to check if apache2 is running, if it is green then apache2 is running correctly. Your first webserver has been launched.
 
@@ -66,15 +76,19 @@ Run the `systemctl status` command to check if apache2 is running, if it is gree
 sudo systemctl status apache2
 ```
 
+![status apache2](./images/3%20install%20apache2.png)
+
 Validate if the webserver can be accessed locally using the command shown below:
 
 ```sh
 curl localhost
 ```
 
+![curl localhost](./images/3%20curl-localhost.png)
+
 ## Step 4: Configure and Update the Static Website Content
 
-Run the following command to update the default `index.html` file to display your name, username, email and [HNG URL](http://hng.tech).
+Run the following command to update the default `index.html` file to display your **name**, **username**, **email** and [**HNG URL**](http://hng.tech).
 
 ```sh
 sudo cat <<EOF | sudo tee /var/www/html/index.html
@@ -139,9 +153,8 @@ sudo systemctl restart apache2
 
 On your EC2 Dashboard, click on the **Instance ID** and copy `Public IP Address` of your EC2 Instance.
 
-
-```sh
-curl -s http://169.254.169.254/latest/meta-data/public-ipv4
-```
+![public ip](./images/public-ip%20address.png)
 
 Go to your web browser and paste the `Public IP Address` of your EC2 Instance.
+
+![browser](./images/browser.png)
