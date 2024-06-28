@@ -21,7 +21,7 @@ Use the following parameters when configuring the EC2 Instance then click on the
 5. Key Pair Type: RSA
 6. Private Key File Format: .pem
 7. New Security Group: Web01
-8. Inbound Rules: Allow Traffic From Anywhere On Port 80 and only Traffic from your Workstation (i.e. My IP) on Port 22.
+8. Inbound Rules: Allow Traffic From Anywhere On **Port 80** and only Traffic from your Workstation (i.e. My IP) on **Port 22**.
 
 ## Step 2: Connect to EC2 Instance using SSH
 
