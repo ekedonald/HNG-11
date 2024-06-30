@@ -8,7 +8,8 @@ fi
 
 # Check if the input file is provided
 if [ -z "$1" ]; then
-    echo "Usage: $0 <input_file>"
+    echo "No input file provided"
+    echo "Hint: sudo bash create_user.sh <input_file_>"
     exit 1
 fi
 
