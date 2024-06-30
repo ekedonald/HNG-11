@@ -168,7 +168,15 @@ if ! id "$username" > /dev/null 2>&1; then
     fi
 ```
 
-`! id "$username" > /dev/null 2>&1;`: Check if a **username** does not exist. If the user does not exist, it creates the user with `useradd -m -s /bin/bash -G "$groups" "$username"`
+`! id "$username" > /dev/null 2>&1;`: Check if a **username** does not exist. If the user does not exist, it creates the user with `useradd -m -s /bin/bash -G "$groups" "$username"`.
+
+* `-m`: Creates the user's home directory.
+
+* `-s /bin/bash`: Sets the user's default shell to **/bin/bash**.
+
+* `-G "$groups"`: Adds the user to specified groups.
+
+If the user already exists, it logs a message indicating the user exists.
 
 
 
