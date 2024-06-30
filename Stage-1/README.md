@@ -96,6 +96,21 @@ while IFS=';' read -r raw_username raw_groups; do
 
 `username=$(echo "$raw_username" | xargs)` and `groups=$(echo "$raw_groups" | xargs)`: Used to remove whitespace from **raw_username** and **raw_groups** and assign them to **username** and **groups** respectively.
 
+#### Validate Username & Groups
+
+```sh
+  if [ -z "$username" ]; then
+        log_action "Invalid or empty username found, skipping..."
+        continue
+    fi
+
+    if [ -z "$groups" ]; then
+        log_action "No groups specified for user $username, skipping..."
+        continue
+    fi
+```
+
+This validates if **username** and **groups** are not empty. It either is empty, it'll log an error and skips.
 
 
 
