@@ -113,6 +113,35 @@ while IFS=';' read -r raw_username raw_groups; do
 This validates if **username** and **groups** are not empty. It either is empty, it'll log an error and skips.
 
 
+#### Group Creation
+
+```sh
+ IFS=',' read -ra group_list <<< "$groups"
+    for group in "${group_list[@]}"; do
+        group=$(echo "$group" | xargs)  # Trim whitespace
+        if [ -z "$group" ]; then
+            log_action "Invalid or empty group name found for user $username, skipping..."
+            continue
+        fi
+
+        if ! getent group "$group" > /dev/null 2>&1; then
+            groupadd "$group"
+            if [ $? -eq 0 ]; then
+                log_action "Group $group created"
+            else
+                log_action "Failed to create group $group"
+                continue
+            fi
+        fi
+    done
+```
+
+`IFS=',' read -ra group_list <<< "$groups"`: Splits groups into an array **group_list** using `,` as the delimiter. 
+
+It then loops through each group in group_list removing whitespace and checks if each group exits. If a group does not exist, `! getent group "$group" > /dev/null 2>&1` creates the group and logs the action.
+
+
+
 
 
 
