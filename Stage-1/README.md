@@ -140,6 +140,38 @@ This validates if **username** and **groups** are not empty. It either is empty,
 
 It then loops through each group in group_list removing whitespace and checks if each group exits. If a group does not exist, `! getent group "$group" > /dev/null 2>&1` creates the group and logs the action.
 
+#### User Creation
+
+```sh
+if ! id "$username" > /dev/null 2>&1; then
+        useradd -m -s /bin/bash -G "$groups" "$username"
+        if [ $? -eq 0 ]; then
+            log_action "User $username created and added to groups $groups"
+
+            # Generate and set password
+            password=$(generate_password)
+            echo "$username:$password" | chpasswd
+            if [ $? -eq 0 ]; then
+                log_action "Password set for user $username"
+
+                # Store the password securely
+                echo "$username:$password" >> $password_file
+            else
+                log_action "Failed to set password for user $username"
+            fi
+        else
+            log_action "Failed to create user $username"
+            continue
+        fi
+    else
+        log_action "User $username already exists"
+    fi
+```
+
+`! id "$username" > /dev/null 2>&1;`: Check if a **username** does not exist. If the user does not exist, it creates the user with `useradd -m -s /bin/bash -G "$groups" "$username"`
+
+
+
 
 
 
