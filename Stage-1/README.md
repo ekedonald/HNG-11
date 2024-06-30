@@ -80,7 +80,9 @@ generate_password() {
 }
 ```
 
-The **generate_password** function creates a random password with 15 characters.
+The **generate_password** function creates a random password with 15 characters ranging from (a-z, A-Z and 0-9).
+
+
 
 
 
