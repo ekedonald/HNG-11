@@ -64,7 +64,7 @@ touch $password_file
 chmod 600 $password_file
 ```
 
-#### Generate Random Password Function
+#### Logging Function and Password Generation Function
 
 ```sh
 log_action() {
@@ -72,6 +72,21 @@ log_action() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" | tee -a $log_file
 }
 ```
+The **log_action** function creates a log message prefixed with the current date and time.
+
+```sh
+generate_password() {
+    tr -dc A-Za-z0-9 </dev/urandom | head -c 15
+}
+```
+
+The **generate_password** function creates a random password with 15 characters.
+
+
+
+
+
+
 
 
 

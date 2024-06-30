@@ -31,7 +31,7 @@ log_action() {
 
 # Function to generate a random password
 generate_password() {
-    tr -dc A-Za-z0-9 </dev/urandom | head -c 12
+    tr -dc A-Za-z0-9 </dev/urandom | head -c 15
 }
 
 # Read the input file line by line
