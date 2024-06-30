@@ -1,5 +1,5 @@
 # Linux User Creation Bash Script
-I was tasked with writing a bash script called `create_users.sh` that reads a **text file** containing the **usernames** and **group names** of new employees where each is written in the following format: `user;groups`. 
+I was tasked with writing a bash script called `create_users.sh` that reads a **text file** containing the **usernames** and **group names** of the new employees where each is written in the following format: `user;groups`. 
 
 The script performs the following functions:
 
