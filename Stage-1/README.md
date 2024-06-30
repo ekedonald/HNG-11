@@ -55,6 +55,25 @@ password_file="/var/secure/user_passwords.txt"
 
 `password_file="/var/secure/user_passwords.txt"`: Sets the path where the passwords will be logged.
 
+#### Create Log and Password Files With File Permissions If They Do Not Exist 
+
+```sh
+touch $log_file
+mkdir -p /var/secure
+touch $password_file
+chmod 600 $password_file
+```
+
+#### Generate Random Password Function
+
+```sh
+log_action() {
+    local message="$1"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" | tee -a $log_file
+}
+```
+
+
 
 
 
