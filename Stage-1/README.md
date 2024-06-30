@@ -12,7 +12,7 @@ The script performs the following functions:
 
 Checkout the [create_users.sh](./create_user.sh) script here.
 
-## The Breakdown of the create_user.sh script
+## The Breakdown of The create_user.sh Script
 
 The following is a detailed breakdown of the `create_user.sh` script:
 
@@ -46,14 +46,14 @@ fi
  ```sh
  input_file="$1"
 log_file="/var/log/user_management.log"
-password_file="/var/secure/user_passwords.txt"
+password_file="/var/secure/user_passwords.csv"
  ```
 
  `input_file="$1"`: Assigns the first positional parameter to **input_file** which represents the file containing the employees usernames and group names.
 
  `log_file="/var/log/user_management.log"`: Sets the path where actions will be logged.
 
-`password_file="/var/secure/user_passwords.txt"`: Sets the path where the passwords will be logged.
+`password_file="/var/secure/user_passwords.csv"`: Sets the path where the passwords will be logged.
 
 #### Create Log & Password Files With File Permissions If They Do Not Exist 
 
@@ -187,24 +187,4 @@ chmod 700 /home/"$username"
 ```
 
 This sets `rwx` permissions, user and group ownership to the user's home directory.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

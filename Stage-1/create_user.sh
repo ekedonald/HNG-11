@@ -15,7 +15,7 @@ fi
 
 input_file="$1"
 log_file="/var/log/user_management.log"
-password_file="/var/secure/user_passwords.txt"
+password_file="/var/secure/user_passwords.csv"
 
 # Create log and password files if they do not exist
 touch $log_file
