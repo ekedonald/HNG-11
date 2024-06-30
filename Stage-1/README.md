@@ -55,7 +55,7 @@ password_file="/var/secure/user_passwords.txt"
 
 `password_file="/var/secure/user_passwords.txt"`: Sets the path where the passwords will be logged.
 
-#### Create Log and Password Files With File Permissions If They Do Not Exist 
+#### Create Log & Password Files With File Permissions If They Do Not Exist 
 
 ```sh
 touch $log_file
@@ -64,7 +64,7 @@ touch $password_file
 chmod 600 $password_file
 ```
 
-#### Logging Function and Password Generation Function
+#### Logging Function & Password Generation Function
 
 ```sh
 log_action() {
@@ -81,6 +81,21 @@ generate_password() {
 ```
 
 The **generate_password** function creates a random password with 15 characters ranging from (a-z, A-Z and 0-9).
+
+
+#### Read Input File & Remove Whitespace
+
+```sh
+while IFS=';' read -r raw_username raw_groups; do
+    # Remove whitespace
+    username=$(echo "$raw_username" | xargs)
+    groups=$(echo "$raw_groups" | xargs)
+```
+
+`while IFS=';' read -r raw_username raw_groups; do`: Initiates a loop to read the input file, spit each line into **raw_username** and **raw_groups** using `;` as the delimiter.
+
+`username=$(echo "$raw_username" | xargs)` and `groups=$(echo "$raw_groups" | xargs)`: Used to remove whitespace from **raw_username** and **raw_groups** and assign them to **username** and **groups** respectively.
+
 
 
 
