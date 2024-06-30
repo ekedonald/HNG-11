@@ -178,6 +178,17 @@ if ! id "$username" > /dev/null 2>&1; then
 
 If the user already exists, it logs a message indicating the user exists.
 
+#### User Home Directory Permissions & Ownership
+
+```sh
+chmod 700 /home/"$username"
+    chown "$username:$username" /home/"$username"
+    log_action "Permissions set for user $username's home directory"
+```
+
+This sets `rwx` permissions, user and group ownership to the user's home directory.
+
+
 
 
 
