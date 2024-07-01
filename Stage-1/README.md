@@ -330,24 +330,34 @@ EOF
 sudo bash create_user.sh developers.txt
 ```
 
+![run script](./images/1%20run%20script.png)
+
 5. Verify if the users have been created.
 
 ```sh
 cat /etc/passwd | tail -5
 ```
 
+![verify users](./images/1%20verify%20if%20users%20exist.png)
+
 6. Inspect the log and password files.
 
 ```sh
-sudo cat/var/log/user_management.log
+sudo cat /var/log/user_management.log
 ```
+
+![inspect log file](./images/1%20inspect%20log%20file.png)
 
 ```sh
 sudo cat /var/secure/user_passwords.csv
 ```
+
+![inspect password_file](./images/1%20password_file.png)
 
 7. Check the groups users belong to.
 
 ```sh
 groups light idimma mayowa
 ```
+
+![check groups users belong to](./images/1%20check%20group%20users%20belong%20to.png)
