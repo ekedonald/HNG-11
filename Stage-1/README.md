@@ -1,7 +1,17 @@
 # Linux User Creation Bash Script
-This project is based on writing a bash script called `create_users.sh` that reads a **text file** containing the **usernames** and **group names** of the new employees where each is written in the following format: `user;groups`. 
 
-The script performs the following functions:
+## Introduction
+
+As a SysOps Engineer, managing many users and groups in a Linux environment is a monotonous task. A simplified approach is to automate the process using a bash script.
+
+## Overview
+
+This project is based on writing a bash script called `create_users.sh` that reads a **text file** containing the **usernames** and **group names** of the new employees where each is written in the following format: `user;groups`.
+
+### Prerequisites
+* Ubuntu OS
+
+## Features
 
 1. Create users and groups as specified in the text file.
 2. Sets up home directories with appropriate permissions and ownership.
@@ -12,7 +22,7 @@ The script performs the following functions:
 
 Checkout the [create_users.sh](./create_user.sh) script here.
 
-## The Breakdown of The create_user.sh Script
+## The Breakdown Of The `create_user.sh` Script
 
 The following is a detailed breakdown of the `create_user.sh` script:
 
@@ -180,9 +190,9 @@ log_action "Permissions set for user $username's home directory"
 
 This sets `rwx` permissions, user and group ownership to the user's home directory.
 
-## Validate Bash Script
+## Implementation Of The Linux User Creation Bash Script
 
-Log into your Ubuntu server and take the following steps to verify the functionality of the `create_user.sh` script:
+Log into your Ubuntu server and take the following steps to create and verify the functionality of the `create_user.sh` script:
 
 1. Create the `create_user.sh` script using the following command.
 
@@ -353,3 +363,7 @@ groups light idimma mayowa
 ```
 
 ![check groups users belong to](./images/1%20check%20group%20users%20belong%20to.png)
+
+## Conclusion
+
+The `create_user.sh` script makes the management of users and groups seamless.
