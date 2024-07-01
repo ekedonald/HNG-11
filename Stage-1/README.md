@@ -16,7 +16,7 @@ Checkout the [create_users.sh](./create_user.sh) script here.
 
 The following is a detailed breakdown of the `create_user.sh` script:
 
-#### Superuser Privileges Check
+#### 1. Superuser Privileges Check
 
 ```sh
 if [[ $EUID -ne 0 ]]; then
@@ -29,7 +29,7 @@ The conditional statement above is used to verify if the user executing the scri
 
 This simply means the script will executed only by a user with super user privileges.
 
-#### 1. Input File Check
+#### 2. Input File Check
 
 ```sh
 if [ -z "$1" ]; then
@@ -41,7 +41,7 @@ fi
  This checks if an input file was provided when executing the command and displays a hint.
 
 
- #### 2. Variable Declaration
+ #### 3. Variable Declaration
 
  ```sh
  input_file="$1"
@@ -55,7 +55,7 @@ password_file="/var/secure/user_passwords.csv"
 
 `password_file="/var/secure/user_passwords.csv"`: Sets the path where the passwords will be logged.
 
-#### 3. Create Log & Password Files With File Permissions If They Do Not Exist 
+#### 4. Create Log & Password Files With File Permissions If They Do Not Exist 
 
 ```sh
 touch $log_file
@@ -64,7 +64,7 @@ touch $password_file
 chmod 600 $password_file
 ```
 
-#### 4. Logging Function & Password Generation Function
+#### 5. Logging Function & Password Generation Function
 
 ```sh
 log_action() {
@@ -83,7 +83,7 @@ generate_password() {
 The **generate_password** function creates a random password with 15 characters ranging from (a-z, A-Z and 0-9).
 
 
-#### 5. Read Input File & Remove Whitespace
+#### 6. Read Input File & Remove Whitespace
 
 ```sh
 while IFS=';' read -r raw_username raw_groups; do
@@ -96,7 +96,7 @@ while IFS=';' read -r raw_username raw_groups; do
 
 `username=$(echo "$raw_username" | xargs)` and `groups=$(echo "$raw_groups" | xargs)`: Used to remove whitespace from **raw_username** and **raw_groups** and assign them to **username** and **groups** respectively.
 
-#### 6. Validate Username & Groups
+#### 7. Validate Username & Groups
 
 ```sh
   if [ -z "$username" ]; then
@@ -113,7 +113,7 @@ while IFS=';' read -r raw_username raw_groups; do
 This validates if **username** and **groups** are not empty. It either is empty, it'll log an error and skips.
 
 
-#### 7. Group Creation
+#### 8. Group Creation
 
 ```sh
  IFS=',' read -ra group_list <<< "$groups"
@@ -140,7 +140,7 @@ This validates if **username** and **groups** are not empty. It either is empty,
 
 It then loops through each group in group_list removing whitespace and checks if each group exits. If a group does not exist, `! getent group "$group" > /dev/null 2>&1` creates the group and logs the action.
 
-#### 8. User Creation
+#### 9. User Creation
 
 ```sh
 if ! id "$username" > /dev/null 2>&1; then
@@ -178,7 +178,7 @@ if ! id "$username" > /dev/null 2>&1; then
 
 If the user already exists, it logs a message indicating the user exists.
 
-#### 9. User Home Directory Permissions & Ownership
+#### 10. User Home Directory Permissions & Ownership
 
 ```sh
 chmod 700 /home/"$username"
