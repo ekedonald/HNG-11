@@ -321,8 +321,8 @@ cat <<EOF | tee developers.txt
 light; sudo,dev,www-data
 idimma; sudo
 mayowa; dev,www-data
-ikenna: dev,prod
-eke: prod
+ikenna; dev,prod
+eke; prod
 EOF
 ```
 
