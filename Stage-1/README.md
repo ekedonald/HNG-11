@@ -2,6 +2,8 @@
 
 ## Introduction
 
+A company that continues to expand its workforce needs a seamless and efficient onboarding solution for new employees. This involves user, group, security and log management.
+
 As a SysOps Engineer, managing many users and groups in a Linux environment is a monotonous task. A simplified approach is to automate the process using a bash script.
 
 ## Overview
