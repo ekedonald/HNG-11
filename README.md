@@ -6,3 +6,5 @@ This repository contains all the DevOps Stages for HNG Internship 11.
 [Stage 0: Deploying a Static Website on AWS](./Stage-0/README.md)
 
 [Stage 1: Linux User Creation Bash Script](./Stage-1/)
+
+[Stage 2: Dockerized Full Stack Web Application](./Stage-2/)
