@@ -314,6 +314,8 @@ ngrok http --domain=<generated-url> 80
 
 ![ngrok](./images/ngrok.png)
 
+_**Note**: If you want to run ngrok in the background, run this command: `nohup ngrok http --domain=ngrok_domain_url 80 > /dev/null 2>&1 &`_
+
 - Go to the your browser, paste the link highlighted above and click on `Visit site`.
 
 ```sh
