@@ -1,0 +1,4 @@
+flask
+celery
+gunicorn
+python-dotenv
